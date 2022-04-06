@@ -13,11 +13,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Users' }
       },
-      albumId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'Albums' }
-      },
       imageUrl: {
         allowNull: false,
         type: Sequelize.STRING(250)
@@ -28,11 +23,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
