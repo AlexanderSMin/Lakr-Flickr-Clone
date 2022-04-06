@@ -26,7 +26,7 @@ router.get(
 );
 
 router.put(
-    '/:id', photoValidations.validateUpdate,
+    '/:id',
     asyncHandler(async function(req, res, next) {
       try{
         const updatedPhoto = await Photo.findByPk(req.params.id);
@@ -40,7 +40,7 @@ router.put(
 
 
 router.post(
-    '/', photoValidations.validateCreate,
+    '/',
     asyncHandler(async function(req, res, next) {
       try{
         const newPhoto = await Photo.create(req.body);
