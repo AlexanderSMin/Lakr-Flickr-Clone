@@ -12,7 +12,7 @@ const ViewPhotos = () => {
     const photos = useSelector(state => {
         return Object.values(state.photos)
     });
-
+    console.log(photos);
     useEffect(() => {
       async function fetchData() {
         await dispatch(getPhotos());
@@ -32,7 +32,7 @@ const ViewPhotos = () => {
                   <div
                     className="browser-image"
                     style={{ backgroundImage: `url('${photo.imageUrl}')` }}
-                  ></div>
+                  >TESTING</div>
               </NavLink>
             );
           })}

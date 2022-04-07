@@ -28,6 +28,9 @@ function App() {
           <Route path="/photos/:photoId">
             <PhotosMain/>
           </Route>
+          <Route path="/login">
+            <LoginFormPage />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>

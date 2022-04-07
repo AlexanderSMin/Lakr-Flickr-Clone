@@ -1,0 +1,21 @@
+/* background-size: cover;
+ */
+ .browser-image{
+     height:100px;
+     width:100px;
+     background-size: cover;
+ }
+
+ #image-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 3em 15%;
+    padding: 1%;
+    height: auto;
+    margin-top: 3em;
+    border-radius: 10px;
+    background-color: purple;
+    box-shadow: 1px 1px .4em rgb(36, 36, 36), -1px -1px .4em rgb(36, 36, 36);
+    flex-wrap: wrap;
+  }
