@@ -2,7 +2,7 @@ import { React, useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory} from 'react-router-dom';
 import { specificPhoto, deletePhoto } from '../../store/photos';
-import EditPhoto from './../EditPhoto';
+import EditPhoto from '../EditPhoto';
 
 import './PhotosMain.css';
 
@@ -21,7 +21,7 @@ export const PhotosMain = () => {
     useEffect(() => {
         async function fetchData() {
             try{
-                await dispatch(retrievePhoto(photoId));
+                await dispatch(specificPhoto(photoId));
             } catch (err){
                 console.log("ID Not Available");
                 history.push("/photos");
@@ -31,7 +31,6 @@ export const PhotosMain = () => {
         fetchData();
     }, [dispatch, photoId, ]);
 
-
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(deletePhoto(selectedPhoto));
@@ -39,7 +38,7 @@ export const PhotosMain = () => {
     }
 
     let content = null;
-    if (showEditForm){
+    if (showEdit){
         content = (
             <EditPhoto photo={selectedPhoto} hideForm={() => setShowEdit(false)} />
           )
@@ -53,7 +52,7 @@ export const PhotosMain = () => {
                 <h4> {selectedPhoto.title} </h4>
                 <img src={selectedPhoto.imageUrl} alt="" />
                 <p>{selectedPhoto.description}</p>
-                {selectedPhoto.userId === userId ? <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button> : null}
+                {selectedPhoto.userId === userId ? <button onClick={() => setShowEdit(!showEdit)}>Edit</button> : null}
                 {selectedPhoto.userId === userId ? <button onClick={handleDelete}>Delete</button> : null}
                 {content}
             </div>

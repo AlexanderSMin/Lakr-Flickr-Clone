@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPhotos } from '../../store/photos';
-import UploadPhoto  from './../CreatePhoto/';
+import UploadPhoto  from './../UploadPhoto/';
 
 import './ViewPhotos.css';
 

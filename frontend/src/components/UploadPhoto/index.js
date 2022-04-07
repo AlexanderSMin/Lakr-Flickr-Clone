@@ -62,4 +62,4 @@ const UploadPhoto = () => {
    )
 };
 
-export default CreatePhoto;
+export default UploadPhoto;
