@@ -2,6 +2,7 @@ import { React, useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory} from 'react-router-dom';
 import { specificPhoto, deletePhoto } from '../../store/photos';
+
 import EditPhoto from '../EditPhoto';
 
 import './PhotosMain.css';

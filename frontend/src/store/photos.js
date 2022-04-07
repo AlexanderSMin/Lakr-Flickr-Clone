@@ -21,7 +21,7 @@ const removePhoto = photoId => ({
 });
 
 export const getPhotos = () => async dispatch => {
-    const response = await csrfFetch('/api/photos');
+    const response = await fetch('/api/photos');
     if(response.ok){
         const photos = await response.json();
         dispatch(loadPhoto(photos));
@@ -31,7 +31,7 @@ export const getPhotos = () => async dispatch => {
 export const specificPhoto = (photoId) => async dispatch => {
     const response = await csrfFetch(`/api/photos/${photoId}`)
     if(response.ok){
-        const photo = await.json();
+        const photo = await response.json();
         dispatch(addPhoto(photo))
     }
 }
@@ -89,7 +89,7 @@ const initialState = {};
           ...state,
         };
       }
-      case ADD_ONE: {
+      case ADD_PHOTO: {
         if (!state[action.photo.id]) {
           const newState = {
             ...state,

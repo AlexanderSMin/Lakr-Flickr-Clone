@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { editPhoto } from '../../store/photos';
-import './editPhoto.css';
+import './EditPhoto.css';
 
 
 const EditPhoto = ({photo, hideForm}) => {
     const dispatch = useDispatch();
     const id = photo.id;
-    // const userId =
+    const userId = useSelector(state => state.session.user.id)
 
     const [imageUrl, setImageUrl] = useState(photo.imageUrl);
     const [description, setDescription] = useState(photo.description);
@@ -20,8 +20,6 @@ const EditPhoto = ({photo, hideForm}) => {
         e.preventDefault();
 
         const payload = {
-            id,
-            userId: sessionUser.id,
             imageUrl,
             description,
         }

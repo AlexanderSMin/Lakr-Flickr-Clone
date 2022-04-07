@@ -16,15 +16,6 @@ router.get(
     })
 );
 
-
-router.get(
-    '/',
-    asyncHandler(async function(req, res) {
-        const photos = await Photo.findAll();
-        return res.json(photos);
-    })
-);
-
 router.put(
     '/:id',
     asyncHandler(async function(req, res, next) {
@@ -37,7 +28,6 @@ router.put(
       }
     })
 );
-
 
 router.post(
     '/',
