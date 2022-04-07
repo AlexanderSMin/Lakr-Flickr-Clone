@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { getPhotos } from '../../store/photos';
 import UploadPhoto  from './../CreatePhoto/';
 
-import './PhotoBrowser.css';
+import './ViewPhotos.css';
 
 
 const ViewPhotos = () => {
