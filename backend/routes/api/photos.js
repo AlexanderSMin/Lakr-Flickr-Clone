@@ -16,6 +16,14 @@ router.get(
     })
 );
 
+router.get(
+    '/:id',
+    asyncHandler(async function(req, res) {
+        const photos = await Photo.findAll();
+        return res.json(photos);
+    })
+);
+
 router.put(
     '/:id',
     asyncHandler(async function(req, res, next) {
