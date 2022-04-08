@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import './UploadPhoto.css';
 
 const UploadPhoto = () => {
-    const userId = useSelector(state => state.session.user?.id);
+    const currentUser = useSelector(state => state.session.user?.id);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -20,7 +20,7 @@ const UploadPhoto = () => {
         e.preventDefault();
 
         const payload = {
-        userId: sessionUser.id,
+        userId: currentUser,
         imageUrl,
         description,
         };
@@ -39,7 +39,7 @@ const UploadPhoto = () => {
 
     return (
         <>
-            { userId && (
+            { currentUser && (
                 <form onSubmit={handleSubmit} className='form'>
                     <h3> Upload a new Lakr photo </h3>
                     {errors.map((error)=>(

@@ -50,6 +50,7 @@ export const uploadPhoto = (Photo) => async dispatch => {
     }
 }
 export const editPhoto = (photo) => async dispatch => {
+    console.log(photo, 'Photo from store');
     const response = await csrfFetch(`/api/photos/${photo.id}`,
      {
       method: 'PUT',

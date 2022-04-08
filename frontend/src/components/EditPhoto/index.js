@@ -19,20 +19,19 @@ const EditPhoto = ({photo, hideForm}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const payload = {
-            imageUrl,
-            description,
-        }
+        const payload = photo
+            payload.imageUrl = imageUrl
+            payload.description = description
 
         try{
-            const dispatchPhoto = await dispatch(editPhoto(payload));
-            if (dispatchPhoto) {
+            const editedPhoto = await dispatch(editPhoto(payload));
+            if (editedPhoto) {
                  hideForm();
             }
         } catch(err){
             const errorResponse = await err.json();
-            const errorsHolder = errorResponse.errors.filter(error => error !=="Invalid value")
-            setErrors(errorsHolder)
+            // const errorsHolder = errorResponse.errors.filter(error => error !=="Invalid value")
+            // setErrors(errorsHolder)
         }
       };
 
