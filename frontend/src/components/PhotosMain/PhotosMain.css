@@ -1,0 +1,22 @@
+.photo-main-container{
+    width: 50%;
+
+}
+
+.photos-Main{
+    display:flexbox;
+    justify-content:center;
+    align-items:center;
+    width:auto;
+}
+
+
+.photo-detail p{
+    padding: 0em 18px;
+    padding-top: 1em;
+    font-size: 18px;
+}
+
+.photo-detail h4{
+    font-size: 30px;
+}

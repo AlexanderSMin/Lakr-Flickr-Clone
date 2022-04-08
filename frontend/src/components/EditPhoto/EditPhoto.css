@@ -1,0 +1,35 @@
+.form{
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    background-color: black;
+}
+
+.form p{
+    color:yellow;
+    background-color: rgb(66, 66, 66);
+    width: 500px;
+    margin: 55px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin:5px auto ;
+    font-family: 'Arial'
+}
+
+.form input{
+    width: 30em;
+    height: 1.5em;
+    box-shadow: 1px 1px .4em rgb(36, 36, 36);
+}
+
+.form label{
+    margin-left: 1em;
+    display: block;
+    text-align: left;
+    font-size: 1em;
+}
