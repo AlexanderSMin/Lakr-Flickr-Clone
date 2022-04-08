@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import DemoUserButton from './DemoUserButton';
 
 
 import './Navigation.css';
@@ -28,6 +29,7 @@ function Navigation({ isLoaded }){
       <li>
         <NavLink exact to="/">Lakr Home</NavLink>
         <NavLink exact to="/photos">View All Photos</NavLink>
+        <DemoUserButton />
         {isLoaded && sessionLinks}
       </li>
     </ul>
