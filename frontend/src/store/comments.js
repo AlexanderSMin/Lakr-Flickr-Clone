@@ -1,13 +1,13 @@
 import { csrfFetch } from './csrf';
 
-const LOAD_COMMENT = 'comments/LOAD';
+const LOAD_COMMENTS = 'comments/LOAD';
 const ADD_COMMENT = 'comments/ADD_COMMENT';
 const UPDATE_COMMENT = 'comments/UPDATE_COMMENT';
 const REMOVE_COMMENT = 'comments/REMOVE_COMMENT';
 
-const loadComment = list => ({
-    type: LOAD_COMMENT,
-    list,
+const loadComments = comments => ({
+    type: LOAD_COMMENTS,
+    comments,
 });
 
 const addComment = comment => ({
@@ -20,11 +20,11 @@ const removeComment = commentId => ({
     commentId,
 });
 
-export const getComment= () => async dispatch => {
-    const response = await fetch('/api/comments');
+export const getComment= (id) => async dispatch => {
+    const response = await fetch(`/api/photos/${id}/comments`);
     if(response.ok){
         const comments = await response.json();
-        dispatch(loadComment(comments));
+        dispatch(loadComments(comments));
     }
 }
 
@@ -36,8 +36,8 @@ export const specificComment = (commentId) => async dispatch => {
     }
 }
 
-export const uploadComment = (Comment) => async dispatch => {
-    const response = await csrfFetch('/api/comments',
+export const uploadComment = (Comment, id) => async dispatch => {
+    const response = await csrfFetch(`/api/photos/${id}/comments`,
      {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
@@ -45,8 +45,9 @@ export const uploadComment = (Comment) => async dispatch => {
     })
     if(response.ok){
         const newComment = await response.json();
-        const finishedComment = await dispatch(addComment(newComment));
-        return finishedComment;
+        console.log('THIS IS RESPONSE', newComment)
+        dispatch(addComment(newComment));
+        return newComment;
     }
 }
 export const editComment = (comment) => async dispatch => {
@@ -80,30 +81,29 @@ const initialState = {};
 
   const commentReducer = (state = initialState, action) => {
     switch (action.type) {
-      case LOAD_COMMENT: {
+      case LOAD_COMMENTS: {
+        console.log('THIS IS STATE', state)
+        console.log('THIS IS ACTION', action.comments)
         const allComments = {};
-        action.list.forEach(comment => {
+        action.comments.forEach(comment => {
             allComments[comment.id] = comment;
         });
-        return {
-          ...allComments,
-          ...state,
-        };
+        return allComments;
       }
       case ADD_COMMENT: {
-        if (!state[action.comment.id]) {
+        // console.log('THIS IS STATE', state)
+        // console.log('THIS IS ACTION', action.comment)
           const newState = {
             ...state,
             [action.comment.id]: action.comment
           };
           return newState;
-        }
-        return {
-          ...state,
-          [action.comment.id]: {
-            ...action.comment,
-          }
-        };
+        // return {
+        //   ...state,
+        //   [action.comment.id]: {
+        //     ...action.comment,
+        //   }
+        // };
       }
     case UPDATE_COMMENT:{
         return {

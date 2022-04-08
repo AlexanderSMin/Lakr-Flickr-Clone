@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { editComment } from '../../store/comments';
 
 
-const EditComment = ({comment, hideForm}) => {
+const EditComment = ({Comment, hideForm}) => {
     const dispatch = useDispatch();
-    const id = comment.id;
+    const id = Comment.id;
     const userId = useSelector(state => state.session.user.id)
 
-    const [comment, setComment] = useState(comment.comment);
+    const [comment, setComment] = useState(Comment.comment);
 
     const updateComment= (e) => setComment(e.target.value);
     const [errors, setErrors] = useState([]);
@@ -16,7 +16,7 @@ const EditComment = ({comment, hideForm}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const payload = comment
+        const payload = Comment
             payload.comment = comment
 
         try{

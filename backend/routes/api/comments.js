@@ -35,6 +35,18 @@ router.put(
     })
   );
 
+// router.post(
+//     '/',
+//     asyncHandler(async function(req, res, next) {
+//       try{
+//         const newPhoto = await Photo.create(req.body);
+//         return res.json(newPhoto);
+//       } catch (err){
+//         next(err);
+//       }
+//     })
+// );
+
 router.delete(
     '/:id',
     asyncHandler(async function(req, res) {

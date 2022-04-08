@@ -67,6 +67,7 @@ router.post(
     console.log(req.body);
     try{
       const newComment = await Comment.create(req.body);
+      console.log(newComment)
       return res.json(newComment);
     } catch (err){
       next(err);
