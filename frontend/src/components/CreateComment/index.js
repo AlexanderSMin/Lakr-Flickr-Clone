@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { createComment } from '../../store/comments';
+import { CreateComment } from '../../store/comments';
 import { useHistory } from 'react-router-dom';
 import './CreateComment.css';
 
