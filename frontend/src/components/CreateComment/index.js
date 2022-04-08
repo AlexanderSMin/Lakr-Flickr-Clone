@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { CreateComment } from '../../store/comments';
+import { uploadComment } from '../../store/comments';
 import { useHistory } from 'react-router-dom';
 import './CreateComment.css';
 
-const CreateComment= () => {
+const CreateCommentForm= () => {
     const currentUser = useSelector(state => state.session.user?.id);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -23,7 +23,7 @@ const CreateComment= () => {
         photoId,
         };
         try{
-            const addedComment= await dispatch(createComment(payload));
+            const addedComment= await dispatch(uploadComment(payload));
             if (addedComment) {
               history.push(`/photos/${addedComment.photo.id}`);
             }
@@ -54,4 +54,4 @@ const CreateComment= () => {
    )
 };
 
-export default CreateComment;
+export default CreateCommentForm;

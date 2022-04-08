@@ -22,7 +22,7 @@ router.get(
 //Comments
 
 router.put(
-    '/:id', commentValidations.validateUpdate,
+    '/:id',
     asyncHandler(async function(req, res, next) {
         console.log("route hit");
       try{

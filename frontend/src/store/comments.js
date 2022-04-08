@@ -3,7 +3,7 @@ import { csrfFetch } from './csrf';
 const LOAD_COMMENT = 'comments/LOAD';
 const ADD_COMMENT = 'comments/ADD_COMMENT';
 const UPDATE_COMMENT = 'comments/UPDATE_COMMENT';
-const REMOVE_PHOTO = 'comments/REMOVE_COMMENT';
+const REMOVE_COMMENT = 'comments/REMOVE_COMMENT';
 
 const loadComment = list => ({
     type: LOAD_COMMENT,
@@ -45,7 +45,7 @@ export const uploadComment = (Comment) => async dispatch => {
     })
     if(response.ok){
         const newComment = await response.json();
-        const finishedComment = await dispatch(addComment(newComment)
+        const finishedComment = await dispatch(addComment(newComment));
         return finishedComment;
     }
 }

@@ -2,6 +2,8 @@ import { React, useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory} from 'react-router-dom';
 import { specificPhoto, deletePhoto } from '../../store/photos';
+import CreateCommentForm from '../CreateComment';
+
 
 import EditPhoto from '../EditPhoto';
 
@@ -56,6 +58,7 @@ export const PhotosMain = () => {
                 {selectedPhoto.userId === userId ? <button onClick={() => setShowEdit(!showEdit)}>Edit</button> : null}
                 {selectedPhoto.userId === userId ? <button onClick={handleDelete}>Delete</button> : null}
                 {content}
+                <CreateCommentForm photoId = {selectedPhoto.id} />
             </div>
         </div>
     )

@@ -62,7 +62,7 @@ router.post(
 
 //comments
 router.post(
-  '/:id/comments', commentValidations.validateCreate,
+  '/:id/comments',
   asyncHandler(async function(req, res, next) {
     console.log(req.body);
     try{
