@@ -1,12 +1,12 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const {Photo} = require('./../../db/models');
+const {Comment} = require('./../../db/models');
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
-
 
 router.get(
     '/',
@@ -23,6 +23,17 @@ router.get(
         return res.json(photos);
     })
 );
+
+  router.get(
+    '/:id/comments',
+    asyncHandler(async function(req, res) {
+        const comments = await Comment.findAll(
+        {
+          where: {photoId: req.params.id}
+        });
+        return res.json(comments);
+    })
+  );
 
 router.put(
     '/:id',
@@ -47,6 +58,20 @@ router.post(
         next(err);
       }
     })
+);
+
+//comments
+router.post(
+  '/:id/comments', commentValidations.validateCreate,
+  asyncHandler(async function(req, res, next) {
+    console.log(req.body);
+    try{
+      const newComment = await Comment.create(req.body);
+      return res.json(newComment);
+    } catch (err){
+      next(err);
+    }
+  })
 );
 
 router.delete(
