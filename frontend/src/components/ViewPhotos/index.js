@@ -12,7 +12,7 @@ const ViewPhotos = () => {
     const photos = useSelector(state => {
         return Object.values(state.photos)
     });
-    console.log(photos);
+    console.log('This is photos',photos);
     useEffect(() => {
       async function fetchData() {
         await dispatch(getPhotos());
