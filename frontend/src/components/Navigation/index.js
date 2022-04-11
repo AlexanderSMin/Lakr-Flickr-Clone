@@ -20,16 +20,17 @@ function Navigation({ isLoaded }){
       <>
         <NavLink to="/login">Log In</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
+        <DemoUserButton />
       </>
     );
   }
 
   return (
-    <ul>
+    <ul className = "navigation-bar">
       <li>
         <NavLink exact to="/">Lakr Home</NavLink>
         <NavLink exact to="/photos">View All Photos</NavLink>
-        <DemoUserButton />
+        {/* <DemoUserButton /> */}
         {isLoaded && sessionLinks}
       </li>
     </ul>

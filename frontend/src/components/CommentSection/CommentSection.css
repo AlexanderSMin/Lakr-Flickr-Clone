@@ -1,3 +1,10 @@
 .comments-main{
-    border: 3px solid black;
+    border: 2px solid purple;
+}
+
+#comment {
+    border: 3px solid #666666;
+    font: 2em;
+    background-color: #abafa6;
+    color: gold;
 }

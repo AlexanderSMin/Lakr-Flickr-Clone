@@ -40,8 +40,8 @@ const UploadPhoto = () => {
     return (
         <>
             { currentUser && (
-                <form onSubmit={handleSubmit} className='form'>
-                    <h3> Upload a new Lakr photo </h3>
+                <form onSubmit={handleSubmit} className='form-class'>
+                    <h3> Upload New Photo </h3>
                     {errors.map((error)=>(
                         <p key={error}>{error}</p>
                     ))}
@@ -52,7 +52,7 @@ const UploadPhoto = () => {
                     onChange={updateImageUrl} />
                     <input
                     type="text"
-                    placeholder="description"
+                    placeholder="Description"
                     value={description}
                     onChange={updateDescription} />
                     <button type="submit">Submit</button>
