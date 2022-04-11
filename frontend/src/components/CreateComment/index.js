@@ -22,16 +22,6 @@ const CreateCommentForm= ({photoId}) => {
         comment,
         photoId: photoId,
         };
-        // try{
-        //     const addedComment= await dispatch(uploadComment(payload));
-        //     if (addedComment) {
-        //       history.push(`/photos/${addedComment.photo.id}`);
-        //     }
-        // } catch (err){
-        //     const errorResponse = await err.json();
-        //     const errorsHolder = errorResponse.errors.filter(error => error !=="Invalid value")
-        //     setErrors(errorsHolder)
-        // }
          const addedComment= await dispatch(uploadComment(payload));
             if (addedComment) {
               history.push(`/photos/${photoId}`);

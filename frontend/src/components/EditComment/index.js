@@ -26,8 +26,6 @@ const EditComment = ({Comment, hideForm}) => {
             }
         } catch(err){
             const errorResponse = await err.json();
-            // const errorsHolder = errorResponse.errors.filter(error => error !=="Invalid value")
-            // setErrors(errorsHolder)
         }
       };
 

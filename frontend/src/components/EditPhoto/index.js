@@ -30,8 +30,6 @@ const EditPhoto = ({photo, hideForm}) => {
             }
         } catch(err){
             const errorResponse = await err.json();
-            // const errorsHolder = errorResponse.errors.filter(error => error !=="Invalid value")
-            // setErrors(errorsHolder)
         }
       };
 

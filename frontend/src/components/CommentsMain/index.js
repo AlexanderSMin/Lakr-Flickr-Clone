@@ -19,34 +19,11 @@ export const CommentsMain = ({ comment }) => {
 
     const [showEdit, setShowEdit] = useState(false);
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try{
-    //             await dispatch(specificComment(commentId));
-    //         } catch (err){
-    //             console.log("ID Not Available");
-    //             // history.push("/comments");
-    //         }
-
-    //     }
-    //     fetchData();
-    // }, [dispatch, commentId, ]);
-
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteComment(comment));
-        // history.push("/comments");
     }
 
-    // let content = null;
-    // if (showEdit){
-    //     content = (
-    //         <EditComment comment={selectedComment} hideForm={() => setShowEdit(false)} />
-    //       )
-    //     }
-    // if(!selectedComment){
-    //     return null;
-    // }
     return (
         <div className="comments-main-container">
             <div className="comments-Main">

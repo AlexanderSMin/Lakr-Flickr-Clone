@@ -1,6 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const {Comment} = require('./../../db/models');
+const commentValidations = require('../../validations/comments');
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.get(
 //Comments
 
 router.put(
-    '/:id',
+    '/:id',commentValidations.validateUpdate,
     asyncHandler(async function(req, res, next) {
         console.log("route hit");
       try{
@@ -34,18 +35,6 @@ router.put(
       }
     })
   );
-
-// router.post(
-//     '/',
-//     asyncHandler(async function(req, res, next) {
-//       try{
-//         const newPhoto = await Photo.create(req.body);
-//         return res.json(newPhoto);
-//       } catch (err){
-//         next(err);
-//       }
-//     })
-// );
 
 router.delete(
     '/:id',
