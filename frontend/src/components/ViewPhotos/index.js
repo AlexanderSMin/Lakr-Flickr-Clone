@@ -32,7 +32,7 @@ const ViewPhotos = () => {
                   <div
                     className="browser-image"
                     style={{ backgroundImage: `url('${photo.imageUrl}')` }}
-                  >TESTING</div>
+                  ></div>
               </NavLink>
             );
           })}

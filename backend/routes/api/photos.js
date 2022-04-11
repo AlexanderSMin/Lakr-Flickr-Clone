@@ -5,6 +5,8 @@ const {Comment} = require('./../../db/models');
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const photoValidations = require('../../validations/photos');
+const commentValidations = require('../../validations/comments');
 
 const router = express.Router();
 
@@ -36,7 +38,7 @@ router.get(
   );
 
 router.put(
-    '/:id',
+    '/:id', photoValidations.validateUpdate,
     asyncHandler(async function(req, res, next) {
       try{
         const updatedPhoto = await Photo.findByPk(req.params.id);
@@ -49,7 +51,7 @@ router.put(
 );
 
 router.post(
-    '/',
+    '/',photoValidations.validateCreate,
     asyncHandler(async function(req, res, next) {
       try{
         const newPhoto = await Photo.create(req.body);
@@ -62,7 +64,7 @@ router.post(
 
 //comments
 router.post(
-  '/:id/comments',
+  '/:id/comments',commentValidations.validateCreate,
   asyncHandler(async function(req, res, next) {
     console.log(req.body);
     try{

@@ -8,8 +8,6 @@ const CommentSection = ({photoId}) => {
     const dispatch = useDispatch();
 
     const comments = useSelector(state => {
-        // return Object.values(state.comments).filter(comment => comment.photoId === photoId);
-        // return state.comments;
         return state.comments;
     });
     console.log('THIS IS COMMENT', comments);
