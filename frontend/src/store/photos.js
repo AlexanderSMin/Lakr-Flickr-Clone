@@ -45,8 +45,10 @@ export const uploadPhoto = (Photo) => async dispatch => {
     })
     if(response.ok){
         const newPhoto = await response.json();
-        const finishedPhoto = await dispatch(addPhoto(newPhoto))
-        return finishedPhoto;
+        dispatch(addPhoto(newPhoto))
+        // const finishedPhoto = await dispatch(addPhoto(newPhoto))
+        return newPhoto;
+        // return finishedPhoto;
     }
 }
 export const editPhoto = (photo) => async dispatch => {
@@ -81,13 +83,14 @@ const initialState = {};
   const photoReducer = (state = initialState, action) => {
     switch (action.type) {
       case LOAD_PHOTO: {
+        console.log("This is action list", action.list )
         const allPhotos = {};
         action.list.forEach(photo => {
             allPhotos[photo.id] = photo;
         });
         return {
           ...allPhotos,
-          ...state,
+          ...state.photos,
         };
       }
       case ADD_PHOTO: {
