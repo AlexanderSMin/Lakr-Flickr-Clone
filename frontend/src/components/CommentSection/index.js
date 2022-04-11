@@ -24,10 +24,10 @@ const CommentSection = ({photoId}) => {
         <div className="comments-main">
           { comments && Object.values(comments).map((comment) => {
             return (
-              <CommentsMain key={comment.id} comment={comment} />
+              <CommentsMain comment = {comment} />
             );
           })}
-        </ div>
+        </div>
       </main>
     );
 };

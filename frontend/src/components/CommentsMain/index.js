@@ -55,7 +55,7 @@ export const CommentsMain = ({ comment }) => {
                 <p>{comment.comment}</p>
                 {comment.userId === userId ? <button onClick={() => setShowEdit(!showEdit)}>Edit</button> : null}
                 {comment.userId === userId ? <button onClick={handleDelete}>Delete</button> : null}
-                {/* {showEdit && (<EditComment comment={comment} )} */}
+                {<EditComment Comment={comment} hideForm={ null}/>}
             </div>
         </div>
     )

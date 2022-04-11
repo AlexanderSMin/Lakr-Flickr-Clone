@@ -52,7 +52,7 @@ export const uploadComment = (Comment, id) => async dispatch => {
 }
 export const editComment = (comment) => async dispatch => {
     // console.log(comment, ;
-    const response = await csrfFetch(`/api/photos/${comment.id}`,
+    const response = await csrfFetch(`/api/comments/${comment.id}`,
      {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
