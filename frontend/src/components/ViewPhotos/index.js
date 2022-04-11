@@ -12,7 +12,7 @@ const ViewPhotos = () => {
     const photos = useSelector(state => {
         return Object.values(state.photos)
     });
-    console.log('This is photos',photos);
+    // console.log('This is photos',photos);
     useEffect(() => {
       async function fetchData() {
         await dispatch(getPhotos());
@@ -25,12 +25,12 @@ const ViewPhotos = () => {
       }
     return (
       <main>
-        <div id="image-container">
+        <div id="photo-container">
           { photos.map((photo) => {
             return (
               <NavLink key={photo.id} to={`/photos/${photo.id}`}>
                   <div
-                    className="browser-image"
+                    className="view-image"
                     style={{ backgroundImage: `url('${photo.imageUrl}')` }}
                   ></div>
               </NavLink>

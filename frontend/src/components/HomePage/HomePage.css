@@ -1,10 +1,9 @@
 .home_page{
-    background-size: 1920px 1200px;
+    background-size: 2000px 1300px;
     background-position: center;
     background-image:url('./../../images/homepage.jpg');
-    background-color: white;
+    background-color: purple;
     display: flex;
-
     height: 929px;
 }
 
@@ -15,9 +14,11 @@
     word-wrap: normal;
     margin-left: -29%;
     margin-top: 15%;
+    color:gold;
 }
 .lakr_title{
     font-size: 6em;
     position: relative;
     margin-left: 40%;
+    color:gold;
 }
