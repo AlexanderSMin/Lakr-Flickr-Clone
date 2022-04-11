@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import ViewPhotos from "./components/ViewPhotos"
 import PhotosMain from "./components/PhotosMain";
 import HomePage from "./components/HomePage";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
+        <>
         <Switch>
           <Route
             path="/photos"exact
@@ -39,7 +41,9 @@ function App() {
             <HomePage />
           </Route>
         </Switch>
-      )}
+        </>
+        )}
+        <Footer />
     </>
   );
 }

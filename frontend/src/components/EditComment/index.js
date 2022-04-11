@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { editComment } from '../../store/comments';
+import './EditComment.css';
 
 
 const EditComment = ({Comment, hideForm}) => {
@@ -26,6 +27,8 @@ const EditComment = ({Comment, hideForm}) => {
             }
         } catch(err){
             const errorResponse = await err.json();
+            const errorsArray = errorResponse.errors.filter(error => error !=="Invalid value")
+            setErrors(errorsArray)
         }
       };
 
@@ -47,7 +50,7 @@ const EditComment = ({Comment, hideForm}) => {
                         onChange={updateComment}
                     />
                     <br />
-                    <button type="submit">Update comment</button>
+                    <button className= 'button' type="submit">Update comment</button>
                 </form>)
             }
         </>
