@@ -1,0 +1,11 @@
+#comment-button{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    color: gold;
+}
+
+.commentform{
+    background-color:white;
+    color:white;
+}

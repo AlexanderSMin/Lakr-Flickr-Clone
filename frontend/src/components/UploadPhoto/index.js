@@ -55,7 +55,7 @@ const UploadPhoto = () => {
                     placeholder="Description"
                     value={description}
                     onChange={updateDescription} />
-                    <button type="submit">Submit</button>
+                    <button className='button' type="submit">Submit</button>
                 </form>)
             }
         </>

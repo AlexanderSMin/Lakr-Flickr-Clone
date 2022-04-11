@@ -32,7 +32,7 @@ const CreateCommentForm= ({photoId}) => {
     return (
         <>
             { currentUser && (
-                <form onSubmit={handleSubmit} className='form'>
+                <form onSubmit={handleSubmit} className='commentform'>
                     {errors.map((error)=>(
                         <p key={error}>{error}</p>
                     ))}
@@ -41,7 +41,7 @@ const CreateCommentForm= ({photoId}) => {
                     placeholder="Add Comment"
                     value={comment}
                     onChange={updatedComment} />
-                    <button type="submit">Submit</button>
+                    <button className= 'button' id="commentButton" type="submit">Create New Commnet</button>
                 </form>)
             }
         </>

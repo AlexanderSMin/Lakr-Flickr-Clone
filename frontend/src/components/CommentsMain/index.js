@@ -11,10 +11,8 @@ export const CommentsMain = ({ comment }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // const { commentId } = useParams();
-    // const comments = useSelector(state => state.comments);
     const userId = useSelector(state => state.session.user?.id);
-    // const selectedComment = comments[commentId]
+
 
 
     const [showEdit, setShowEdit] = useState(false);
@@ -30,8 +28,8 @@ export const CommentsMain = ({ comment }) => {
                 <h4> {comment.title} </h4>
                 {/* <img src={comment.comment} alt="" /> */}
                 <p>{comment.comment}</p>
-                {comment.userId === userId ? <button onClick={() => setShowEdit(!showEdit)}>Edit</button> : null}
-                {comment.userId === userId ? <button onClick={handleDelete}>Delete</button> : null}
+                {/* {comment.userId === userId ? <button onClick={() => setShowEdit(!showEdit)}>Edit</button> : null} */}
+                {comment.userId === userId ? <button className='button' onClick={handleDelete}>Delete</button> : null}
                 {<EditComment Comment={comment} hideForm={ null}/>}
             </div>
         </div>
