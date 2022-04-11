@@ -20,7 +20,7 @@ const submitting = (e) => {
 
 return (
 
-    <button onClick={submitting} value>Demo User</button>
+    <button className='button' onClick={submitting} value>Demo User</button>
 )
 
 
