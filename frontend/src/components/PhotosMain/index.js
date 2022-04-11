@@ -56,8 +56,8 @@ export const PhotosMain = () => {
                 <h4> {selectedPhoto.title} </h4>
                 <img src={selectedPhoto.imageUrl} alt="" />
                 <p>{selectedPhoto.description}</p>
-                {selectedPhoto.userId === userId ? <button onClick={() => setShowEdit(!showEdit)}>Edit</button> : null}
-                {selectedPhoto.userId === userId ? <button onClick={handleDelete}>Delete</button> : null}
+                {selectedPhoto.userId === userId ? <button className='button' onClick={() => setShowEdit(!showEdit)}>Edit</button> : null}
+                {selectedPhoto.userId === userId ? <button className='button' onClick={handleDelete}>Delete</button> : null}
                 {content}
                 <CommentSection photoId = {photoId}/>
                 <CreateCommentForm photoId = {photoId} />

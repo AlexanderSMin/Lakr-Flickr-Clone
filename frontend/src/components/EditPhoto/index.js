@@ -59,7 +59,7 @@ const EditPhoto = ({photo, hideForm}) => {
                         onChange={updateDescription}
                     />
                     <br />
-                    <button type="submit">Update photo</button>
+                    <button className='button' type="submit">Update photo</button>
                 </form>)
             }
         </>
