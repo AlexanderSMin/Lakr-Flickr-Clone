@@ -5,6 +5,9 @@ Live Link: https://reactsololakr.herokuapp.com/
 Lakr is a clone of Flickr.
 Share photos any Laker related photos on this site.
 
+![Lakr Splash](https://user-images.githubusercontent.com/92739573/178656474-27191d9f-69ce-4044-9162-8c1ff5a8f62c.png)
+
+
 ## Index
 | [Database Schema](https://github.com/AlexanderSMin/reactApp/wiki/Database-Schema) | [Feature List](https://github.com/AlexanderSMin/reactApp/wiki/Feature-List) |
 
